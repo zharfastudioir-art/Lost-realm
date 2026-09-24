@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ZHARFA: THE REALM | ژرفا: قلمرو</title>
+<meta name="description" content="ZHARFA REALM — a fantasy-tech game world by Zharfa Studio">
+<meta name="theme-color" content="#050b18">
+<link rel="icon" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- SPLASH -->
+<div id="splash">
+  <div class="splash-inner">
+    <img src="assets/logo.jpg" alt="Zharfa Studio" class="splash-logo">
+    <div class="splash-studio">ZHARFA STUDIO</div>
+    <div class="splash-bar"><i></i></div>
+    <div id="nameBox" class="name-box hidden">
+      <label id="nameLbl"></label>
+      <input id="firstName" maxlength="16" autocomplete="off">
+      <label id="avLbl"></label>
+      <div class="av-pick" id="avPickSplash"></div>
+    </div>
+    <button id="enterBtn" class="btn-gold hidden" data-t="enter"></button>
+  </div>
+</div>
+
+<div id="app" class="hidden">
+  <div class="sky"></div>
+  <div class="stars"></div>
+  <canvas id="fx"></canvas>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <button class="player" data-open="citadel">
+      <img src="assets/void.jpg" class="avatar" id="avatarImg" alt="">
+      <div class="pinfo">
+        <b id="pName"></b>
+        <small><span data-t="lv"></span> <span id="pLv">1</span> · <span id="pXpTxt"></span></small>
+        <div class="xpbar"><i id="pXp"></i></div>
+      </div>
+    </button>
+    <div class="res">
+      <span class="pill"><i class="coin">$</i><b id="pCoins">0</b></span>
+      <span class="pill"><i class="gem">◆</i><b id="pGems">0</b></span>
+      <button class="icon-btn" id="langBtn" title="Language">EN</button>
+      <button class="icon-btn" id="musicBtn" title="Music">🎵</button>
+      <button class="icon-btn" id="soundBtn" title="Sound">🔊</button>
+    </div>
+  </header>
+
+  <main id="hub">
+    <section class="hero">
+      <div class="brand">
+        <img src="assets/logo.jpg" alt="" class="brand-logo">
+        <div><h1>ZHARFA</h1><div class="realm">REALM</div></div>
+      </div>
+      <h2 data-t="welcome"></h2>
+      <p data-t="welcomeSub"></p>
+      <div class="hero-actions">
+        <button class="btn-gold" data-open="arcade"><span data-t="start"></span> ➜</button>
+        <button class="btn-glass" id="dailyBtn">🎁 <span data-t="daily"></span></button>
+      </div>
+    </section>
+
+    <!-- MAP (desktop) / GRID (mobile) -->
+    <section class="map" id="map">
+      <svg class="paths" viewBox="0 0 1000 600" preserveAspectRatio="none">
+        <path d="M500 110 C 380 180, 260 170, 180 250 M500 110 C 620 180, 760 170, 820 250 M180 250 C 220 360, 300 420, 330 470 M820 250 C 780 360, 700 420, 670 470 M330 470 C 430 520, 570 520, 670 470 M500 110 L 500 330"/>
+      </svg>
+      <div id="islands"></div>
+    </section>
+
+    <section class="rec">
+      <div class="sec-head"><h3 data-t="recommended"></h3><button class="btn-link" data-open="arcade"><span data-t="allGames"></span> ➜</button></div>
+      <div class="rec-row" id="recRow"></div>
+    </section>
+
+    <footer class="sign">
+      <img src="assets/logo.jpg" alt=""><span>Crafted by <b>ZHARFA STUDIO</b> · ژرفا استودیو</span>
+    </footer>
+  </main>
+
+  <!-- PANEL -->
+  <div id="panel" class="panel hidden">
+    <div class="panel-box">
+      <button class="close" id="closePanel">✕</button>
+      <div id="panelBody"></div>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAV (mobile) -->
+  <nav class="bnav">
+    <button data-open="home" class="on"><span>⌂</span><small data-t="navHome"></small></button>
+    <button data-open="arcade"><span>🎮</span><small data-t="navGames"></small></button>
+    <button data-open="arena"><span>⚔</span><small data-t="navArena"></small></button>
+    <button data-open="hall"><span>🏆</span><small data-t="navRank"></small></button>
+    <button data-open="citadel"><span>👤</span><small data-t="navProfile"></small></button>
+  </nav>
+
+  <div id="toast"></div>
+</div>
+
+<script src="js/i18n.js"></script>
+<script src="js/state.js"></script>
+<script src="js/games.js"></script>
+<script src="js/app.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3fc72efbfdb5582',t:'MTc5MDE5NjkxMg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
